@@ -6,14 +6,14 @@ namespace Yahtzee
 {
 	class ScoreCard
 	{
-		private Upper _upper;
-		private Lower _lower;
-		private int _total;
+		private readonly Upper _upper;
+		private readonly Lower _lower;
+		//private int _total;
 		public ScoreCard() 
 		{
 			_upper = new Upper();
 			_lower = new Lower();
-			_total = 0;
+			//_total = 0;
 		}
 		public List<Tuple<string, int>> CheckScore(Dice dice)
         {
