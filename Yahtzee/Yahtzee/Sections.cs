@@ -78,7 +78,7 @@ namespace Yahtzee
 		{
 			return _categories[(int)LOWER.YAHTZEE].Score == Yahtzee.ScoreValue();
 		}
-		List<Tuple<string, int>> CheckScores(Dice dice, List<Tuple<string, int>> upperScores)
+		public List<Tuple<string, int>> CheckScores(Dice dice, List<Tuple<string, int>> upperScores)
         {
 			//Check scores as normal, then check for yahtzee
 			List<Tuple<string, int>> scores = base.CheckScores(dice);
