@@ -13,7 +13,7 @@ namespace Yahtzee
 		private ScoreCard _scoreCard;
 		private Dice _rollable;
 		private Dice _held;
-		public Player(std::string name, bool isComputer)
+		public Player(string name, bool isComputer)
 		{
 			_name = name;
 			_isComputer = isComputer;
@@ -30,14 +30,14 @@ namespace Yahtzee
 
 			while (currentRoll <= 3 && playerScored == false)
 			{
-				Console.Write("Player: {_name} \n");
-				Console.Write("You have { 4 - currentRoll} rolls remaining\n\n");
+				Console.Write("Player: " + _name +  "\n");
+				Console.Write("You have " + Convert.ToString( 4 - currentRoll) + " rolls remaining\n\n");
 				int choice = -1;
 
 				if (_rolled)
 				{
-					Console.Write("ReadyDice: {rollable} \n");
-					Console.Write("HeldDice: {held} \n\n");
+					Console.Write("ReadyDice: " + _rollable + "\n");
+					Console.Write("HeldDice: " + _held + "\n\n");
 
 					choice = Util.Input("Roll(1), Hold(2), UnHold(3) Score(4), Show scorecard(5), Quit(6): ", 1, 6);
 				}
@@ -146,7 +146,6 @@ namespace Yahtzee
 			{
 				inputting = false;
 				string input = Util.InputString(msg);
-				MemoryStream ss = new MemoryStream(Encoding.UTF8.GetBytes(input));
 				string[] indices = input.Split(' ');
 				int diceNum = -1;
 
