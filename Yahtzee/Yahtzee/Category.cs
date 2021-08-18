@@ -25,7 +25,7 @@ namespace Yahtzee
         public int Score
         {
             get { return _score; }
-            set { _score = value; }
+            set { _score = value; _scored = true; }
         }
 
         public bool Scored
