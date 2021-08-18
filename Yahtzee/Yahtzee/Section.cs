@@ -48,7 +48,7 @@ namespace Yahtzee
 			return true;
 		}
 
-		List<Tuple<string, int>> CheckScores(Dice dice)
+		public List<Tuple<string, int>> CheckScores(Dice dice)
         {
 			List<Tuple<string, int>> scoringCategories = new List<Tuple<string, int>>();
 
@@ -57,7 +57,7 @@ namespace Yahtzee
 
 			return scoringCategories;
 		}
-		List<int> GetScores() 
+		public List<int> GetScores() 
 		{
 			List<int> scoringCategories = new List<int>();
 

@@ -9,7 +9,7 @@ namespace Yahtzee
         protected string _name;
         protected int _score;
         protected bool _scored;
-        protected const int _unscorable = -1;
+        protected static readonly int _unscorable = -1;
         public Category(string name)
         {
             _name = name;
@@ -34,7 +34,7 @@ namespace Yahtzee
             set { _scored = value; }
         }
 
-        public int Unscorable
+        public static int Unscorable
         {
             get { return _unscorable; }
         }
