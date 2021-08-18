@@ -57,17 +57,62 @@ namespace Yahtzee
 
         public int KindScore(Dice dice, int numSame)
         {
+            if (Scored)
+                return Unscorable;
+
+            int newScore = 0;
+
+            int[] values = new int[7];
+            foreach (Die die in dice)
+	{
+                ++values[die.Value];
+                newScore += die.Value;
+            }
+
+            for (int i = 1; i < 7; ++i)
+                if (values[i] >= numSame)
+                    return newScore;
+
             return 0;
         }
 
         public bool StraightScore(Dice dice, int numConsec)
         {
-            return false;
+            int numConsecutive = 0;
+            int maxConsecutive = 0;
+            int[] values = new int[7];
+            foreach (Die die in dice)
+		        ++values[die.Value];
+
+            for (int i = 1; i < 7; ++i)
+            {
+                if (values[i] > 0)
+                {
+                    ++numConsecutive;
+                }
+                else
+                {
+                    if (numConsecutive > maxConsecutive)
+                        maxConsecutive = numConsecutive;
+                    numConsecutive = 0;
+                }
+            }
+
+            return maxConsecutive >= numConsec;
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            string result = "";
+            string temp = _name;
+            temp = temp.PadRight(15);
+            result += temp;
+
+            temp = Convert.ToString(_score);
+            temp.PadLeft(8);
+            result += temp;
+
+            return result;
         }
     }
 }
