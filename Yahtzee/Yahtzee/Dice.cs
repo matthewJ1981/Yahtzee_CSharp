@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Yahtzee
 {
-    class Dice
+    class Dice : IEnumerable<Die>
     {
         private List<Die> _dice;
         public Dice()
@@ -75,5 +76,19 @@ namespace Yahtzee
 
             return result;
         }
+
+        public IEnumerator<Die> GetEnumerator()
+        {
+            for (int i = 0; i < _dice.Count; ++i)
+                yield return _dice[i];
+
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)_dice).GetEnumerator();
+        }
     }
+    
+
 }
