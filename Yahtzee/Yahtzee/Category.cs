@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Yahtzee
 {
-    abstract class Category
+    abstract class Category //: ICloneable
     {
         protected string _name;
         protected int _score;
@@ -114,5 +114,10 @@ namespace Yahtzee
 
             return result;
         }
+
+        //public object Clone()
+        //{
+        //    return this.MemberwiseClone();
+        //}
     }
 }

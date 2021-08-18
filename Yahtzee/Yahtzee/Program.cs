@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Yahtzee
 {
@@ -6,11 +7,13 @@ namespace Yahtzee
     {
         static void Main(string[] args)
         {
-            Dice dice = Dice.YahtzeeDice();
-            dice.Roll();
+            List<Category> list = new List<Category>();
+            list.Add(new Ones());
+            list.Add(new Twos());
 
-            foreach (Die die in dice)
-                Console.WriteLine(die);
+            foreach (Category c in list)
+                Console.WriteLine(c);
+
         }
     }
 }
