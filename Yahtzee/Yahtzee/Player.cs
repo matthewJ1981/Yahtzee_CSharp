@@ -19,7 +19,7 @@ namespace Yahtzee
 			_isComputer = isComputer;
 			_rolled = false;
 			_scoreCard = new ScoreCard();
-			_rollable = new Dice();
+			_rollable = Dice.YahtzeeDice();
 			_held = new Dice();
 		}
 		public void TakeTurn()
@@ -27,6 +27,9 @@ namespace Yahtzee
 			bool playerScored = false;
 			_rolled = false;
 			int currentRoll = 1;
+
+			//_rollable = Dice.YahtzeeDice();
+			//_held = new Dice();
 
 			while (currentRoll <= 3 && playerScored == false)
 			{
@@ -95,7 +98,7 @@ namespace Yahtzee
 		public int Roll()
         {
 			_rollable.Roll();
-			_rolled = true;
+			_rolled = true;	
 
 			int total = 0;
 			foreach (Die die in _rollable)
@@ -151,7 +154,7 @@ namespace Yahtzee
 
 				foreach (string str in indices)
                 {
-					int index = Convert.ToInt32(str);
+					diceNum = Convert.ToInt32(str);
 
 					bool duplicate = false;
 					foreach (int i in diceToMove)
@@ -201,6 +204,9 @@ namespace Yahtzee
 				if (!playerScored)
 					Console.Write("Category already scored, try again\n\n");
 			} while (playerScored == false);
+
+			_rollable += _held;
+			_held.Clear();
 
 			//FIX - Give option to change mind
 			return true;

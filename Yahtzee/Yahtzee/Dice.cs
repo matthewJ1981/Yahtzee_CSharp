@@ -57,11 +57,20 @@ namespace Yahtzee
 
         public static Dice operator + (Dice lhs, Dice rhs)
         {
-            Dice dice = lhs;
-	        for (int i = 0; i < rhs.Size(); ++i)
+            Dice dice = new Dice();
+
+            for (int i = 0; i < lhs.Size(); ++i)
+                dice.AddDice(lhs[i]);
+
+            for (int i = 0; i < rhs.Size(); ++i)
 		        dice.AddDice(rhs[i]);
 
 	        return dice;
+        }
+
+        public void Clear()
+        {
+            _dice.Clear();
         }
 
     public override string ToString()
@@ -89,6 +98,4 @@ namespace Yahtzee
             return ((IEnumerable)_dice).GetEnumerator();
         }
     }
-    
-
 }
