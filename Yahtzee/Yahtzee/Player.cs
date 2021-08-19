@@ -28,9 +28,6 @@ namespace Yahtzee
 			_rolled = false;
 			int currentRoll = 1;
 
-			//_rollable = Dice.YahtzeeDice();
-			//_held = new Dice();
-
 			while (currentRoll <= 3 && playerScored == false)
 			{
 				Console.Write("Player: " + _name +  "\n");
